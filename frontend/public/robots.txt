@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://orthoraja.com/sitemap.xml

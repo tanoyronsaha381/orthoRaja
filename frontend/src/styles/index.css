@@ -4,7 +4,7 @@
 
 :root {
   color: #0f172a;
-  background: #f8fafc;
+  background: #08111f;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -15,9 +15,8 @@ body {
   margin: 0;
   font-family: Inter, sans-serif;
   background:
-    radial-gradient(circle at 20% 0%, rgba(15, 118, 110, 0.10), transparent 28%),
-    radial-gradient(circle at 90% 12%, rgba(6, 182, 212, 0.10), transparent 24%),
-    #f8fafc;
+    linear-gradient(140deg, rgba(8, 17, 31, 0.96), rgba(17, 33, 49, 0.96)),
+    #08111f;
 }
 
 button, input, textarea, select {
@@ -30,50 +29,51 @@ button, input, textarea, select {
 
 .mesh-bg {
   background:
-    linear-gradient(90deg, rgba(255,255,255,0.96), rgba(255,255,255,0.82)),
-    url("https://res.cloudinary.com/ieofbmnn/image/upload/v1785508840/3_rtodbc.jpg");
+    radial-gradient(circle at 18% 10%, rgba(20, 184, 166, 0.12), transparent 28%),
+    radial-gradient(circle at 88% 16%, rgba(6, 182, 212, 0.10), transparent 24%),
+    linear-gradient(115deg, rgba(255,255,255,0.98) 0%, rgba(244,252,251,0.93) 44%, rgba(217,242,241,0.78) 100%);
   background-size: cover;
   background-position: center;
 }
 
 .glass {
-  border: 1px solid rgba(255, 255, 255, 0.62);
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 22px 70px rgba(15, 23, 42, 0.10);
   backdrop-filter: blur(18px);
 }
 
 .section {
-  padding: 82px 0;
+  padding: 74px 0;
 }
 
 .container {
-  width: min(1280px, calc(100% - 28px));
+  width: min(1220px, calc(100% - 32px));
   margin: 0 auto;
 }
 
 .section-title {
   font-family: "Playfair Display", serif;
-  font-size: clamp(2rem, 4vw, 2.55rem);
+  font-size: clamp(2rem, 4vw, 2.8rem);
   line-height: 1.14;
   color: #0f172a;
 }
 
 .hero-title {
   font-family: "Playfair Display", serif;
-  font-size: clamp(2.55rem, 6vw, 4.55rem);
-  line-height: 1.08;
+  font-size: clamp(2.35rem, 5.6vw, 4.75rem);
+  line-height: 1.04;
   color: #0f172a;
 }
 
 .site-frame {
-  width: min(1320px, calc(100% - 32px));
-  margin: 46px auto;
+  width: min(1440px, calc(100% - 28px));
+  margin: 28px auto 0;
   overflow: hidden;
-  border: 1px solid rgba(226, 232, 240, 0.88);
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 28px 90px rgba(15, 23, 42, 0.14);
+  border: 1px solid rgba(226, 232, 240, 0.72);
+  border-radius: 22px 22px 0 0;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.26);
 }
 
 .hero-doctor {
@@ -98,6 +98,55 @@ button, input, textarea, select {
   box-shadow: 0 18px 40px rgba(15, 118, 110, 0.18);
 }
 
+.hero-panel {
+  background:
+    radial-gradient(circle at 13% 19%, rgba(20, 184, 166, 0.13), transparent 24%),
+    radial-gradient(circle at 72% 36%, rgba(255, 255, 255, 0.70), transparent 20%),
+    linear-gradient(118deg, rgba(255,255,255,0.98) 0%, rgba(244,252,251,0.93) 49%, rgba(207,236,235,0.82) 100%),
+    url("https://res.cloudinary.com/ieofbmnn/image/upload/v1785508840/3_rtodbc.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 0 72%, rgba(15,118,110,0.12) 72% 72.55%, transparent 72.55%),
+    radial-gradient(circle at 88% 12%, rgba(15,118,110,0.16) 1.5px, transparent 2px) 0 0 / 24px 24px;
+  opacity: 0.75;
+  z-index: 1;
+}
+
+.doctor-arc {
+  clip-path: ellipse(58% 66% at 56% 50%);
+}
+
+.appointment-panel {
+  position: relative;
+  background: linear-gradient(180deg, #f7fbfb 0%, #ffffff 100%);
+}
+
+.appointment-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 640px;
+  pointer-events: none;
+  background:
+    linear-gradient(105deg, rgba(255,255,255,0.82) 0%, rgba(238,252,250,0.75) 44%, rgba(255,255,255,0.66) 100%),
+    url("https://res.cloudinary.com/ieofbmnn/image/upload/v1785508843/9_bemsov.jpg");
+  background-size: cover;
+  background-position: center top;
+}
+
+.appointment-panel > .container {
+  position: relative;
+  z-index: 1;
+}
+
 .page-loader {
   min-height: 100vh;
   display: grid;
@@ -120,13 +169,70 @@ button, input, textarea, select {
 }
 
 @media (max-width: 767px) {
+  body {
+    background:
+      linear-gradient(150deg, rgba(8,17,31,0.98), rgba(19,38,54,0.98)),
+      #08111f;
+  }
+
   .site-frame {
-    width: min(390px, calc(100% - 24px));
-    margin: 18px auto;
-    border-radius: 18px;
+    width: min(420px, calc(100% - 20px));
+    margin: 14px auto 0;
+    border-radius: 28px 28px 0 0;
   }
 
   .section {
-    padding: 58px 0;
+    padding: 54px 0;
+  }
+
+  .container {
+    width: min(100% - 24px, 380px);
+  }
+
+  .hero-title {
+    font-size: clamp(2.15rem, 12vw, 3.08rem);
+    color: #ffffff;
+    text-shadow: 0 3px 18px rgba(4, 23, 35, 0.38);
+  }
+
+  .hero-title .text-primary {
+    color: #9ff4e9;
+  }
+
+  .hero-panel {
+    background:
+      linear-gradient(180deg, #f7fbfb 0%, #ffffff 100%);
+  }
+
+  .hero-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 565px;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, rgba(4, 44, 48, 0.30), rgba(4, 44, 48, 0.58)),
+      linear-gradient(90deg, rgba(255,255,255,0.84), rgba(255,255,255,0.18)),
+      url("https://res.cloudinary.com/ieofbmnn/image/upload/v1785508840/3_rtodbc.jpg");
+    background-size: cover;
+    background-position: center top;
+    z-index: 0;
+  }
+
+  .doctor-arc {
+    clip-path: ellipse(70% 69% at 57% 54%);
+  }
+
+  .appointment-panel {
+    background: linear-gradient(180deg, #f7fbfb 0%, #ffffff 100%);
+  }
+
+  .appointment-panel::before {
+    height: 560px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.66), rgba(238,252,250,0.78) 58%, rgba(255,255,255,0.92)),
+      url("https://res.cloudinary.com/ieofbmnn/image/upload/v1785508843/9_bemsov.jpg");
+    background-size: cover;
+    background-position: center top;
   }
 }

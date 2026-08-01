@@ -32,12 +32,12 @@ export default function Appointment() {
   };
 
   return (
-    <section className="section mesh-bg min-h-screen pt-36">
+    <section className="appointment-panel section min-h-screen pt-36">
       <div className="container grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <p className="mb-3 text-sm font-extrabold uppercase tracking-[0.25em] text-primary">Appointment</p>
-          <h1 className="hero-title">Book a focused orthopedic consultation.</h1>
-          <p className="mt-6 text-lg leading-8 text-slate-700">Share your symptoms and preferred schedule. The clinic team will confirm the appointment after reviewing your request.</p>
+          <h1 className="hero-title text-ink">Book a focused orthopedic consultation.</h1>
+          <p className="mt-6 text-lg font-medium leading-8 text-slate-800">Share your symptoms and preferred schedule. The clinic team will confirm the appointment after reviewing your request.</p>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="glass grid gap-4 rounded-[8px] p-6 md:grid-cols-2">
           {[

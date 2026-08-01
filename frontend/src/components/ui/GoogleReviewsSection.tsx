@@ -62,12 +62,28 @@ export default function GoogleReviewsSection() {
   return (
     <section className="section bg-white">
       <div className="container">
-        <div className="relative grid gap-10 lg:grid-cols-[1fr_0.58fr] lg:items-center">
+        <div className="relative grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div className="relative mx-auto w-full max-w-[460px] lg:order-2">
+            <div className="absolute -left-5 top-8 z-10 rounded-[8px] bg-white px-5 py-4 shadow-[0_18px_50px_rgba(15,23,42,0.14)]">
+              <div className="flex items-center gap-2 text-amber">
+                {Array.from({ length: Math.round(displayRating) }, (_, index) => <Star key={index} size={16} fill="currentColor" />)}
+              </div>
+              <p className="mt-2 text-lg font-black text-ink">{displayRating.toFixed(1)} Rating</p>
+            </div>
+            <img src={doctorImages[1]} alt="Dr. Raja Saha" className="relative aspect-[4/5] w-full rounded-[8px] object-cover object-top shadow-[0_24px_80px_rgba(15,118,110,0.18)]" />
+            <div className="absolute -bottom-5 right-4 z-10 rounded-[8px] bg-primary px-5 py-4 text-white shadow-glow">
+              <p className="text-2xl font-black">{reviewCount}+</p>
+              <p className="text-xs font-bold">Google Reviews</p>
+            </div>
+          </div>
           <div>
-            <p className="mb-4 text-xs font-black uppercase tracking-[0.22em] text-primary">Testimonials</p>
-            <h2 className="font-display text-[clamp(2rem,4.8vw,3.8rem)] font-black leading-[1.08] text-ink">
-              As someone who has always been anxious about orthopedic visits, Dr. Raja Saha patient-centered approach and gentle demeanor instantly put me at ease...
+            <p className="mb-4 text-[11px] font-black uppercase tracking-[0.28em] text-primary">Patient Stories</p>
+            <h2 className="font-display text-[clamp(2rem,4.4vw,3.25rem)] font-black leading-[1.08] text-ink">
+              Trusted orthopedic care, told through real recovery stories.
             </h2>
+            <p className="mt-5 max-w-2xl text-[16px] leading-8 text-slate-700">
+              Clear explanations, careful follow-up and practical recovery plans help patients feel informed at every step.
+            </p>
 
             <div className="mt-7 flex flex-wrap items-center gap-4">
               <div className="flex items-center gap-2 text-amber">
@@ -78,9 +94,9 @@ export default function GoogleReviewsSection() {
               {isLoading && <span className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">Checking latest data</span>}
             </div>
 
-            <div className="mt-7 grid max-w-[720px] gap-3">
+            <div className="mt-7 grid gap-3 md:grid-cols-2">
               {visibleReviews.map((review, index) => (
-                <article key={`${review.authorName ?? 'review'}-${index}`} className="rounded-[8px] border border-slate-200 bg-slate-50 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.06)]">
+                <article key={`${review.authorName ?? 'review'}-${index}`} className="rounded-[8px] border border-slate-100 bg-[#f8fbfb] p-4 shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
                   <div className="flex items-start gap-3">
                     <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-[6px] text-sm font-black ${avatarColors[index % avatarColors.length]}`}>
                       {(review.authorName ?? 'G').slice(0, 1).toUpperCase()}
@@ -114,10 +130,6 @@ export default function GoogleReviewsSection() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[430px]">
-            <div className="absolute -right-1 -top-14 hidden font-display text-[9rem] font-black leading-none text-primary md:block">"</div>
-            <img src={doctorImages[1]} alt="Dr. Raja Saha" className="relative aspect-[4/5] w-full rounded-[8px] object-cover object-top shadow-glow" />
-          </div>
         </div>
       </div>
     </section>

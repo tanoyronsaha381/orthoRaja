@@ -1,39 +1,47 @@
 import { useState } from 'react';
 import { Building2, Mail, MapPin, MessageCircle, Navigation, Phone } from 'lucide-react';
 import { sendContact } from '../services/api';
+import { clinicEmail, clinicEmailHref, clinicPhoneDisplay, clinicPhoneHref, clinicWhatsAppHref } from '../data/contact';
 
 const locations = [
   {
     name: 'Dum Dum Bibhuti Deb Janakalyan Samity',
     address: 'Neelambar Vihar Complex, 40, Dum Dum Rd, Ward Number 22, Motijheel, Amarpalli, South Dumdum, West Bengal 700074',
     meta: 'Name: Bibhuti Janakalyan',
-    phone: '+91-9836450275',
+    phone: clinicPhoneDisplay,
     tone: 'text-rose'
   },
   {
     name: 'Techno India DAMA Healthcare & Medical Centre',
     address: 'LB 10, Eastern Metropolitan Bypass Rd, Chingrighata, LB Block, Sector 3, Bidhannagar, Kolkata, West Bengal 700106',
-    phone: '+91-6292191312',
+    phone: clinicPhoneDisplay,
     tone: 'text-accent'
   },
   {
     name: 'Sterling Hospital',
     address: '55/1, Bhupendra Bose Ave, Hati Bagan, Shyam Bazar, Kolkata, West Bengal 700004',
-    phone: '033 2530 1313',
+    phone: clinicPhoneDisplay,
     tone: 'text-amber'
   },
   {
     name: 'Arunodaya Healthcare Pvt Ltd',
     address: '1, TN Mukerjee Rd, Station Pally, Dankuni, West Bengal 712708',
-    phone: '+91-9874997499',
+    phone: clinicPhoneDisplay,
     tone: 'text-success'
   },
   {
     name: 'Apollo Diagnostics Bonhooghly',
     address: '76C, Rai Mohon Banerjee Rd, Subhas Pally Park, Bonhooghly Government Colony, Kolkata, Baranagar, West Bengal 700108',
-    phone: '+91-9062162581',
+    phone: clinicPhoneDisplay,
     tone: 'text-success'
   }
+];
+
+const contactCards = [
+  { title: 'Main Area', text: 'Kolkata, West Bengal', icon: MapPin },
+  { title: 'Phone', text: clinicPhoneDisplay, icon: Phone, href: clinicPhoneHref },
+  { title: 'Email', text: clinicEmail, icon: Mail, href: clinicEmailHref },
+  { title: 'WhatsApp', text: 'Chat with clinic team', icon: MessageCircle, href: clinicWhatsAppHref, external: true }
 ];
 
 export default function Contact() {
@@ -71,7 +79,7 @@ export default function Contact() {
                   <p className="text-[15px] font-medium leading-7">{location.address}</p>
                   {location.meta && <p className="text-sm font-bold text-primary">{location.meta}</p>}
                 </div>
-                <a href={`tel:${location.phone.replace(/[^+\d]/g, '')}`} className="mt-5 inline-flex items-center justify-center gap-2 rounded-[6px] bg-primary/10 px-3 py-3 text-sm font-extrabold text-primary transition hover:bg-primary hover:text-white">
+                <a href={clinicPhoneHref} className="mt-5 inline-flex items-center justify-center gap-2 rounded-[6px] bg-primary/10 px-3 py-3 text-sm font-extrabold text-primary transition hover:bg-primary hover:text-white">
                   <Phone size={16} /> {location.phone}
                 </a>
               </article>
@@ -83,18 +91,16 @@ export default function Contact() {
       <section className="section bg-mist">
         <div className="container grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              ['Main Area', 'Kolkata, West Bengal', MapPin],
-              ['Phone', '+91 9836450275', Phone],
-              ['Email', 'care@orthoraja.com', Mail],
-              ['WhatsApp', 'Chat with clinic team', MessageCircle]
-            ].map(([title, text, Icon]) => (
-              <div key={String(title)} className="rounded-[8px] bg-white p-6 shadow-soft">
+            {contactCards.map(({ title, text, icon: Icon, href, external }) => {
+              const CardTag = href ? 'a' : 'div';
+              return (
+              <CardTag key={title} href={href} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined} className="rounded-[8px] bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-glow">
                 <Icon className="mb-4 text-primary" />
-                <p className="text-xl font-bold">{title as string}</p>
-                <p className="mt-2 text-slate-600">{text as string}</p>
-              </div>
-            ))}
+                <p className="text-xl font-bold">{title}</p>
+                <p className="mt-2 text-slate-600">{text}</p>
+              </CardTag>
+              );
+            })}
           </div>
 
           <div>

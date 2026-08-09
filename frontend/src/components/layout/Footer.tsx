@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import { clinicEmail, clinicEmailHref, clinicPhoneDisplay, clinicPhoneHref } from '../../data/contact';
 
 export default function Footer() {
   return (
@@ -20,8 +21,8 @@ export default function Footer() {
         <div>
           <p className="font-bold">Contact</p>
           <div className="mt-4 grid gap-3 text-slate-300">
-            <span className="flex gap-2"><Phone size={18} /> +91 98765 43210</span>
-            <span className="flex gap-2"><Mail size={18} /> care@orthoraja.com</span>
+            <a href={clinicPhoneHref} className="flex gap-2 transition hover:text-white"><Phone size={18} /> {clinicPhoneDisplay}</a>
+            <a href={clinicEmailHref} className="flex gap-2 transition hover:text-white"><Mail size={18} /> {clinicEmail}</a>
             <span className="flex gap-2"><MapPin size={18} /> Kolkata, West Bengal</span>
           </div>
         </div>

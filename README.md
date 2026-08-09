@@ -50,4 +50,4 @@ Public appointment/contact submissions are open. Admin reads and content writes 
 
 - Vercel frontend: set `VITE_API_URL=https://your-backend-host/api`, build command `npm run build`, output `dist`.
 - Render/Railway backend: set the variables from `backend/.env.example`, use Java 21, build `gradle bootJar`, start `java -jar build/libs/orthoraja-api-0.0.1-SNAPSHOT.jar`.
-- Supabase PostgreSQL: use the pooler JDBC URL with `prepareThreshold=0`; Flyway creates all `orthoraja_...` tables on first boot.
+- Neon PostgreSQL: use the JDBC URL with `sslmode=require` and `prepareThreshold=0`; Flyway creates all `orthoraja_...` tables on first boot.

@@ -103,7 +103,7 @@ button, input, textarea, select {
     radial-gradient(circle at 13% 19%, rgba(20, 184, 166, 0.13), transparent 24%),
     radial-gradient(circle at 72% 36%, rgba(255, 255, 255, 0.70), transparent 20%),
     linear-gradient(118deg, rgba(255,255,255,0.98) 0%, rgba(244,252,251,0.93) 49%, rgba(207,236,235,0.82) 100%),
-    url("https://res.cloudinary.com/ieofbmnn/image/upload/v1785508840/3_rtodbc.jpg");
+    url("/orthoraja-images/3.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -137,7 +137,7 @@ button, input, textarea, select {
   pointer-events: none;
   background:
     linear-gradient(105deg, rgba(255,255,255,0.82) 0%, rgba(238,252,250,0.75) 44%, rgba(255,255,255,0.66) 100%),
-    url("https://res.cloudinary.com/ieofbmnn/image/upload/v1785508843/9_bemsov.jpg");
+    url("/orthoraja-images/9.jpg");
   background-size: cover;
   background-position: center top;
 }
@@ -213,7 +213,7 @@ button, input, textarea, select {
     background:
       linear-gradient(180deg, rgba(4, 44, 48, 0.30), rgba(4, 44, 48, 0.58)),
       linear-gradient(90deg, rgba(255,255,255,0.84), rgba(255,255,255,0.18)),
-      url("https://res.cloudinary.com/ieofbmnn/image/upload/v1785508840/3_rtodbc.jpg");
+      url("/orthoraja-images/3.jpg");
     background-size: cover;
     background-position: center top;
     z-index: 0;
@@ -231,7 +231,7 @@ button, input, textarea, select {
     height: 560px;
     background:
       linear-gradient(180deg, rgba(255,255,255,0.66), rgba(238,252,250,0.78) 58%, rgba(255,255,255,0.92)),
-      url("https://res.cloudinary.com/ieofbmnn/image/upload/v1785508843/9_bemsov.jpg");
+      url("/orthoraja-images/9.jpg");
     background-size: cover;
     background-position: center top;
   }

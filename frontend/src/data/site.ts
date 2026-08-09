@@ -1,17 +1,17 @@
 import { Activity, BadgeCheck, Bone, CalendarCheck, HeartPulse, Hospital, Microscope, ShieldCheck, Sparkles, Star, Stethoscope } from 'lucide-react';
 
 export const doctorImages = [
-  'https://res.cloudinary.com/ieofbmnn/image/upload/v1785508843/10_pxgdns.jpg',
-  'https://res.cloudinary.com/ieofbmnn/image/upload/v1785508840/1_kk220l.jpg',
-  'https://res.cloudinary.com/ieofbmnn/image/upload/v1785508840/3_rtodbc.jpg',
-  'https://res.cloudinary.com/ieofbmnn/image/upload/v1785508841/4_qbwz8e.jpg',
-  'https://res.cloudinary.com/ieofbmnn/image/upload/v1785508840/2_qe3m33.jpg',
-  'https://res.cloudinary.com/ieofbmnn/image/upload/v1785508843/6_jnange.jpg',
-  'https://res.cloudinary.com/ieofbmnn/image/upload/v1785508841/7_hlrfvy.jpg',
-  'https://res.cloudinary.com/ieofbmnn/image/upload/v1785508842/8_snlozo.jpg',
-  'https://res.cloudinary.com/ieofbmnn/image/upload/v1785508843/9_bemsov.jpg',
-  'https://res.cloudinary.com/ieofbmnn/image/upload/v1785508841/5_ngfovm.jpg',
-  'https://res.cloudinary.com/ieofbmnn/image/upload/v1785508843/11_vjsiqj.jpg'
+  '/orthoraja-images/10.jpg',
+  '/orthoraja-images/1.jpg',
+  '/orthoraja-images/3.jpg',
+  '/orthoraja-images/4.jpg',
+  '/orthoraja-images/2.jpg',
+  '/orthoraja-images/6.jpg',
+  '/orthoraja-images/7.jpg',
+  '/orthoraja-images/8.jpg',
+  '/orthoraja-images/9.jpg',
+  '/orthoraja-images/5.jpg',
+  '/orthoraja-images/11.jpg'
 ];
 
 export const stats = [

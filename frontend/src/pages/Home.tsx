@@ -6,12 +6,19 @@ import FAQAccordion from '../components/ui/FAQAccordion';
 import CTA from '../components/ui/CTA';
 import GoogleReviewsSection from '../components/ui/GoogleReviewsSection';
 import { doctorImages, faqs, gallery, services, stats } from '../data/site';
+import { clinicPhoneHref, clinicWhatsAppHref } from '../data/contact';
 
 const statIcons = [Users, Star, Smile, Clock3];
 const trustItems = [
   ['Advanced Technology', Sparkles],
   ['Patient Focused', HeartPulse],
   ['Trusted by 1000+ Patients', ShieldCheck]
+];
+
+const mobileActions = [
+  { label: 'WhatsApp', icon: MessageCircle, href: clinicWhatsAppHref, external: true },
+  { label: 'Call Now', icon: Phone, href: clinicPhoneHref },
+  { label: 'Location', icon: MapPin, href: '/contact' }
 ];
 
 export default function Home() {
@@ -82,14 +89,10 @@ export default function Home() {
               ))}
             </div>
             <div className="absolute bottom-5 right-4 z-20 grid grid-cols-3 overflow-hidden rounded-[8px] bg-primary text-white shadow-glow md:hidden">
-              {[
-                ['WhatsApp', MessageCircle],
-                ['Call Now', Phone],
-                ['Location', MapPin]
-              ].map(([label, Icon]) => (
-                <Link key={String(label)} to="/contact" className="grid min-w-[76px] place-items-center gap-1 border-r border-white/20 py-3 text-[10px] font-bold last:border-r-0">
-                  <Icon size={16} /> {label as string}
-                </Link>
+              {mobileActions.map(({ label, icon: Icon, href, external }) => (
+                <a key={label} href={href} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined} className="grid min-w-[76px] place-items-center gap-1 border-r border-white/20 py-3 text-[10px] font-bold last:border-r-0">
+                  <Icon size={16} /> {label}
+                </a>
               ))}
             </div>
           </motion.div>

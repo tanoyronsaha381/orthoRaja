@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useScroll } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import { FloatingWhatsAppButton } from './components/ui/WhatsAppButton';
 
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
@@ -71,11 +72,12 @@ export default function App() {
         </AnimatePresence>
       </div>
       <Footer />
+      <FloatingWhatsAppButton />
       {showTop && (
         <button
           aria-label="Back to top"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-6 right-5 z-50 grid h-12 w-12 place-items-center rounded-full bg-ink text-white shadow-glow transition hover:scale-105"
+          className="fixed bottom-7 left-7 z-50 hidden h-12 w-12 place-items-center rounded-full bg-ink text-white shadow-glow transition hover:scale-105 md:grid"
         >
           <ArrowUp size={20} />
         </button>

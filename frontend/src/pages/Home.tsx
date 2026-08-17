@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, CalendarCheck, Clock3, HeartPulse, MapPin, MessageCircle, Phone, ShieldCheck, Smile, Sparkles, Star, Users } from 'lucide-react';
+import { ArrowRight, CalendarCheck, Clock3, HeartPulse, MapPin, Phone, ShieldCheck, Smile, Sparkles, Star, Users } from 'lucide-react';
 import ServiceCard from '../components/ui/ServiceCard';
 import FAQAccordion from '../components/ui/FAQAccordion';
 import CTA from '../components/ui/CTA';
 import GoogleReviewsSection from '../components/ui/GoogleReviewsSection';
+import { MobileHeroWhatsAppButton } from '../components/ui/WhatsAppButton';
 import { doctorImages, faqs, gallery, services, stats } from '../data/site';
-import { clinicPhoneHref, clinicWhatsAppHref } from '../data/contact';
+import { clinicPhoneHref } from '../data/contact';
 
 const statIcons = [Users, Star, Smile, Clock3];
 const trustItems = [
@@ -16,7 +17,6 @@ const trustItems = [
 ];
 
 const mobileActions = [
-  { label: 'WhatsApp', icon: MessageCircle, href: clinicWhatsAppHref, external: true },
   { label: 'Call Now', icon: Phone, href: clinicPhoneHref },
   { label: 'Location', icon: MapPin, href: '/contact' }
 ];
@@ -36,7 +36,8 @@ export default function Home() {
             <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.16 }} className="mt-6 max-w-[560px] text-[16px] leading-8 text-slate-700 md:text-[17px]">
               Advanced joint replacement, arthroscopy, sports injury treatment and trauma care delivered with compassion, precision and excellence.
             </motion.p>
-            <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24 }} className="mt-8 grid gap-3 sm:flex sm:flex-wrap sm:gap-4">
+            <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.24 }} className="relative mt-8 grid gap-3 sm:flex sm:flex-wrap sm:gap-4">
+              <MobileHeroWhatsAppButton />
               <Link to="/appointment" className="inline-flex min-h-12 items-center justify-center gap-3 rounded-[7px] bg-primary px-7 py-4 text-sm font-extrabold text-white shadow-[0_16px_35px_rgba(15,118,110,0.28)] transition hover:-translate-y-0.5 hover:bg-[#075f59] sm:min-w-[210px]">
                 <CalendarCheck size={17} /> Book Appointment
               </Link>
@@ -88,9 +89,9 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <div className="absolute bottom-5 right-4 z-20 grid grid-cols-3 overflow-hidden rounded-[8px] bg-primary text-white shadow-glow md:hidden">
-              {mobileActions.map(({ label, icon: Icon, href, external }) => (
-                <a key={label} href={href} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined} className="grid min-w-[76px] place-items-center gap-1 border-r border-white/20 py-3 text-[10px] font-bold last:border-r-0">
+            <div className="absolute bottom-5 right-4 z-20 grid grid-cols-2 overflow-hidden rounded-[8px] bg-primary text-white shadow-glow md:hidden">
+              {mobileActions.map(({ label, icon: Icon, href }) => (
+                <a key={label} href={href} className="grid min-w-[76px] place-items-center gap-1 border-r border-white/20 py-3 text-[10px] font-bold last:border-r-0">
                   <Icon size={16} /> {label}
                 </a>
               ))}
